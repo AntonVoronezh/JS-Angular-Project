@@ -1,0 +1,27 @@
+
+
+<nav class="navbar bg-primary">
+  <h1>
+    <a routerLink="/">На главную</a>
+  </h1>
+
+  <app-alert></app-alert>
+
+  <ul *ngIf="auth.isAuthenticated()">
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'dashboard']">Главная</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'create']">Создать</a>
+    </li>
+    <li>
+      <a href="#" (click)="logout($event)">Выйти</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
